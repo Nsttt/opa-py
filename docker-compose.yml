@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  opa:
+    image: openpolicyagent/opa:latest
+    ports:
+      - "8181:8181"
+    command:
+      - "run"
+      - "--server"
+      - "--config-file=/config/opa_config.yaml"
+    volumes:
+      - ./policies:/policies
+      - ./opa_config.yaml:/config/opa_config.yaml
